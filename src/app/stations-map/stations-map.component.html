@@ -1,0 +1,25 @@
+<sebm-google-map 
+  [latitude]="defaultPosition.lat"
+  [longitude]="defaultPosition.long"
+  [zoom]="defaultPosition.zoom"
+  [zoomControl]="true">
+  
+  <sebm-google-map-marker 
+    *ngFor="let m of stations"
+    [latitude]="m.latitude" 
+    [longitude]="m.longitude"
+    [title]="m.adresse"
+    [label]="m.ville"
+    [iconUrl]="m.icon"
+    [visible]="true"
+    (markerClick)="stationClicked(m)">
+
+    <sebm-google-map-info-window>
+      <strong>{{ m.adresse }}</strong>
+    </sebm-google-map-info-window>
+  </sebm-google-map-marker>
+</sebm-google-map>
+
+<app-station-info
+  [station]="currentStation">
+</app-station-info>

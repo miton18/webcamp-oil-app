@@ -1,0 +1,14 @@
+<article *ngIf="station">
+  
+  <h2>{{ station.adresse }}</h2>
+  
+  <div *ngFor="let services of station.services">
+    <p *ngFor="let service of services">
+      {{ service }}
+    </p>
+  </div>
+  
+  <code>
+    {{ station | json }}
+  </code>
+</article>
